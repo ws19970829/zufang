@@ -1,0 +1,10 @@
+[11-Nov-2019 21:14:07 PRC] PHP Fatal error:  Can't use method return value in write context in F:\xiazai\www\zufang\app\Models\Admin.php on line 13
+[14-Nov-2019 15:37:39 PRC] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in F:\xiazai\www\zufang\functions.php on line 5
+[14-Nov-2019 15:37:43 PRC] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in F:\xiazai\www\zufang\functions.php on line 5
+[14-Nov-2019 15:37:44 PRC] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in F:\xiazai\www\zufang\functions.php on line 5
+[14-Nov-2019 15:37:45 PRC] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in F:\xiazai\www\zufang\functions.php on line 5
+[14-Nov-2019 15:37:45 PRC] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in F:\xiazai\www\zufang\functions.php on line 5
+[14-Nov-2019 15:37:47 PRC] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in F:\xiazai\www\zufang\functions.php on line 5
+[18-Nov-2019 01:24:32 PRC] PHP Fatal error:  Cannot use $this as parameter in F:\xiazai\www\zufang\app\Models\Article.php on line 16
+[18-Nov-2019 01:26:17 PRC] PHP Fatal error:  Cannot use $this as parameter in F:\xiazai\www\zufang\app\Models\Article.php on line 16
+[18-Nov-2019 01:27:07 PRC] PHP Fatal error:  Cannot use $this as parameter in F:\xiazai\www\zufang\app\Models\Article.php on line 16
