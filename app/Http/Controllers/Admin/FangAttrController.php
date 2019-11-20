@@ -68,9 +68,9 @@ class FangAttrController extends BaseController
      * @param  \App\Models\FangAttr  $fangAttr
      * @return \Illuminate\Http\Response
      */
-    public function edit(FangAttr $fangAttr)
+    public function edit(FangAttr $fangattr)
     {
-//    dd($fangAttr);
+    dd($fangattr);
         $data=FangAttr::all()->toArray();
         $data= treeLevel($data);
         return view('admin.fangattr.edit',compact(['fangattr','data']));

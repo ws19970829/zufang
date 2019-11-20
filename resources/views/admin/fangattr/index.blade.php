@@ -58,21 +58,6 @@
     <script type="text/javascript" src="{{ staticAdmin()}}lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="{{ staticAdmin()}}lib/laypage/1.2/laypage.js"></script>
     <script>
-        $('#ws').on('click','.editbtn',function(){
-           var str =  this;
-            var n = str.lastIndexOf('/');
-              alert(this);
-            {{--$.ajax({--}}
-                {{--url,--}}
-                {{--type:'PUT',--}}
-                {{--data:{--}}
-                    {{--_token: '{{csrf_token()}}',--}}
-                {{--}--}}
-            {{--}).then(ret=>{--}}
-                {{--console.log(ret);--}}
-            {{--})--}}
-            return false;
-        });
         const _token = "{{ csrf_token() }}";
         const app = new Vue({
             el:'#app',

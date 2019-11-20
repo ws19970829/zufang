@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FangOnwerRequest;
 
-class FangOwnerController extends Controller
+class FangOwnerController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -17,6 +17,8 @@ class FangOwnerController extends Controller
     public function index()
     {
         //
+        $data = FangOwner::orderBy('id','desc')->paginate($this->pagesize);
+        return view('admin.fangowner.index',compact('data'));
     }
 
     /**
@@ -33,7 +35,7 @@ class FangOwnerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request 2
      * @return \Illuminate\Http\Response
      */
     public function store(FangOnwerRequest $request)
