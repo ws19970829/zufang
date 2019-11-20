@@ -47,11 +47,23 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-        'article'=>[
+        'articles'=>[
             //驱动本地文件
             'driver'=>'local',
             //上传到服务器的位置
             'root'=>public_path('uploads/articles'),
+        ],
+        'fangattr'=>[
+            //驱动本地文件
+            'driver'=>'local',
+            //上传到服务器的位置
+            'root'=>public_path('uploads/fangattr'),
+        ],
+        'fangowner'=>[
+            //驱动本地文件
+            'driver'=>'local',
+            //上传到服务器的位置
+            'root'=>public_path('uploads/fangowner'),
         ],
 
         'public' => [

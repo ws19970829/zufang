@@ -14,5 +14,15 @@ class BaseController extends Controller
     {
         $this->pagesize =env('PAGESIZE');
     }
+    public function upfile(Request $request){
+//        return ['status'=>0,'url'=>''];
+        $node = $request->get('node');
+        $file = $request->file('file');
+        // ' ' ,直接存在uploads/articles下；
+        // 'article'config->file配置下的节点名称
+
+        $url = $file->store('',$node);
+        return ['status'=>0,'url'=>'/uploads/'. $node .'/'.$url];
+    }
 
 }

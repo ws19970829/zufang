@@ -12,6 +12,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
         Route::get('welcome','IndexController@welcome')->name('welcome');
         Route::get('logout','IndexController@logout')->name('logout');
 
+        //文件上传
+        Route::post('base/upfile','BaseController@upfile')->name('base.upfile');
+
         //用户页
         Route::get('user/index','AdminController@index')->name('user.index');
         Route::get('user/add','AdminController@add')->name('user.add');
@@ -38,6 +41,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
         Route::get('article/delimg','ArticleController@delimg')->name('article.delimg');
         Route::post('article/upfile','ArticleController@upfile')->name('article.upfile');
         Route::resource('article','ArticleController');
+        //房源属性
+        Route::resource('fangattr','FangAttrController');
+        //房东
+        Route::resource('fangowner','FangOwnerController');
 
 
     });

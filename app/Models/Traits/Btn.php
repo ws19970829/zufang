@@ -25,7 +25,7 @@ trait Btn {
         }else{
             $url=$url.'?'.$params;
         }
-        return  '<a href="' . $url . '" class="label label-secondary radius">修改</a>';
+        return  '<a href="' . $url . '" class="label label-secondary radius editbtn"  >修改</a>';
     }
     return '';
    }
@@ -34,6 +34,10 @@ trait Btn {
             return  '<a href="' . route($routeName, $this) . '" class="label label-danger radius del">删除</a>';
         }
         return '';
+    }
+
+    public function checkBox(){
+        return '<input type="checkbox" name="ids[]" value="' .$this->id .'">';
     }
 
 

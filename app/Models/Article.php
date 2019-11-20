@@ -13,9 +13,7 @@ class Article extends Base
         return $this->belongsTo(Articlecate::class,'cid');
     }
     //全选框
-    public function checkBox(){
-        return '<input type="checkbox" name="ids[]" value="' .$this->id .'">';
-    }
+
     public function getCheckBoxAttribute(){
         return $this->checkBox();
     }

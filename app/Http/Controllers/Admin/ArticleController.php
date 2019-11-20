@@ -74,15 +74,7 @@ class ArticleController extends BaseController
 
         return view('admin.article.create',compact('data'));
     }
-    public function upfile(Request $request){
-//        return ['status'=>0,'url'=>''];
-        $file = $request->file('file');
-        // ' ' ,直接存在uploads/articles下；
-        // 'article'config->file配置下的节点名称
 
-        $url = $file->store('','article');
-        return ['status'=>0,'url'=>'/uploads/articles/'.$url];
-    }
 
 
     /**
