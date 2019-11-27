@@ -5,6 +5,12 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
     Route::post('login','LoginController@login')->name('login');
     Route::get('getCaptcha','LoginController@getCaptcha')->name('getCaptcha');
 
+
+    //es搜索
+    Route::get('esinitindex','EsController@initindex')->name('initindex');
+    Route::get('esinitindex1','EsController@initindex1')->name('initindex');
+
+
 //    首页
     Route::group(['middleware'=>['checkadmin']],function(){
 
@@ -44,7 +50,20 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
         //房源属性
         Route::resource('fangattr','FangAttrController');
         //房东
+        //房东导出excel
+        Route::get('fangowner/export','FangOwnerController@export')->name('fangowner.export');
         Route::resource('fangowner','FangOwnerController');
+        //房东属性
+        //
+        Route::get('fang/city','FangController@getCity')->name('fang.city');
+        Route::resource('fang','FangController');
+
+        //预约管理
+        Route::resource('notice','NoticeController');
+        //接口账号管理
+        Route::resource('apiuser','ApiuserController');
+        //
+
 
 
     });

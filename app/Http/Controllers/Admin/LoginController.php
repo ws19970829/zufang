@@ -31,11 +31,11 @@ class LoginController extends Controller
           return  redirect(route('admin.login'))->withErrors(['errors'=>'用户登录失败']);
         }
         $userinfo = [];
-       Mail::raw('用户登录成功',function(Message $message){
-           $message->subject('用户登录通知');
-           $message->to('247121925@qq.com','小王');
-
-       });
+//       Mail::raw('用户登录成功',function(Message $message){
+//           $message->subject('用户登录通知');
+//           $message->to('247121925@qq.com','小王');
+//
+//       });
 
         return redirect(route('admin.index'));
     }

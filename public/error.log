@@ -8,3 +8,8 @@
 [18-Nov-2019 01:24:32 PRC] PHP Fatal error:  Cannot use $this as parameter in F:\xiazai\www\zufang\app\Models\Article.php on line 16
 [18-Nov-2019 01:26:17 PRC] PHP Fatal error:  Cannot use $this as parameter in F:\xiazai\www\zufang\app\Models\Article.php on line 16
 [18-Nov-2019 01:27:07 PRC] PHP Fatal error:  Cannot use $this as parameter in F:\xiazai\www\zufang\app\Models\Article.php on line 16
+[23-Nov-2019 11:55:04 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in F:\xiazai\www\zufang\functions.php on line 9
+[23-Nov-2019 11:55:07 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 36864 bytes) in F:\xiazai\www\zufang\functions.php on line 9
+[23-Nov-2019 11:55:11 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 36864 bytes) in F:\xiazai\www\zufang\functions.php on line 9
+[23-Nov-2019 11:55:13 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 36864 bytes) in F:\xiazai\www\zufang\functions.php on line 9
+[23-Nov-2019 11:56:50 PRC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 32768 bytes) in F:\xiazai\www\zufang\functions.php on line 9

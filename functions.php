@@ -24,6 +24,16 @@ function subTree(array $data, int $pid = 0){
     }
     return $arr;
 }
+function subTree2(array $data, int $pid = 0){
+    $arr = [];
+    foreach ($data as $val) {
+        if ($pid == $val['pid']) {
+            $val['sub'] = subTree($data,$val['id']);
+            $arr[$val['field_name']] = $val;
+        }
+    }
+    return $arr;
+}
 function get_cate_list($list, $pid = 0, $level = 0)
 {
     static $tree = array();

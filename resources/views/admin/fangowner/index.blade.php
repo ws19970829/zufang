@@ -23,8 +23,12 @@
                     <i class="Hui-iconfont">&#xe6e2;</i>
                     批量删除
                 </a>
-                <a class="btn btn-primary radius" data-title="添加文章"   href="{{ route('admin.article.create')}}">
+                <a class="btn btn-primary radius" data-title="添加文章"   href="{{ route('admin.fangowner.create')}}">
                     <i class="Hui-iconfont">&#xe600;</i> 添加文章</a>
+                 <a class="btn btn-success radius" data-title="导出房东excel"   href="{{ route('admin.fangowner.export')}}">
+                    <i class="Hui-iconfont">&#xe600;</i> 导出房东excel</a>
+                <a  style="display: @if($isshow) inline-block; @else none;@endif"    class="btn btn-success radius" data-title="导出房东excel"   href="/uploads/fangownerexcel/fangowner.xlsx">
+                    <i class="Hui-iconfont">&#xe600;</i> 下载</a>
             </span>
         </div>
         <div class="mt-20">
@@ -32,15 +36,37 @@
                 <thead>
                 <tr class="text-c">
                     <th width="25"><input type="checkbox" name="" value=""></th>
-                    <th width="80">ID</th>
-                    <th>标题</th>
-                    <th width="80">分类</th>
-
-                    <th width="120">更新时间</th>
+                    <th width="40">ID</th>
+                    <th width="40">房东姓名</th>
+                    <th width="100">身份证号</th>
+                    <th width="40">房东性别</th>
+                    <th width="100">房东年龄</th>
+                    <th width="100">联系号码</th>
+                    <th width="100">家庭住址</th>
+                    <th width="100">邮箱</th>
                     <th width="120">操作</th>
                 </tr>
                 </thead>
-
+             <tbody>
+             @foreach($data as $item)
+                 <tr>
+                     <td>{!! $item->checkbox() !!}</td>
+                     <td>{{$item->id}}</td>
+                     <td>{{$item->name}}</td>
+                     <td>{{$item->card}}</td>
+                     <td>{{$item->sex}}</td>
+                     <td>{{$item->age}}</td>
+                     <td>{{$item->phone}}</td>
+                     <td>{{$item->address}}</td>
+                     <td>{{$item->email}}</td>
+                     <td>
+                         {!! $item->showBtn('admin.fangowner.show') !!}
+                     {!! $item->editBtn('admin.fangowner.edit') !!}
+                         {!! $item->delBtn('admin.fangowner.destroy') !!}
+                     </td>
+                 </tr>
+                 @endforeach
+             </tbody>
             </table>
         </div>
     </div>
@@ -50,6 +76,23 @@
     <script type="text/javascript" src="{{staticAdmin()}}lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="{{staticAdmin()}}lib/laypage/1.2/laypage.js"></script>
     <script>
+        $('.showbtn').click(function(){
+            let url=$(this).attr('href');
+            $.get(url).then(({status,msg,data})=>{
+              if(status==0){
+                  let content='';
+                  data.forEach(item=>{
+                    content +=`<img src="${item}" style="width:150px;" />&nbsp;`
+                  });
+                  layer.open({
+                      type:1,
+                      area:['600px','300px'],
+                      content
+                  });
+              }
+            })
+            return false;
+        })
         $('.delall').click(function(){
             var inputs = $('input[name="ids[]"]:checked');
             var ids = [];

@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+//validation类
+use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Validator;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +49,23 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->ajax()) {  // 判断是否是ajax请求
+            if ($exception instanceof ValidationException) { // 是否是表单验证的异常
+                // 返回响应数据 json
+                return response()->json(['status' => 1, 'msg' => '验证失败', 'data' => $exception->validator->messages()], 200);
+            }
+            // 如果不是表单验证错误，是什么错误就返回什么错误
+            return parent::render($request, $exception);
+        }
+        if($exception instanceof LoginException){
+            //1账号有误
+            $data = ['status' => $exception->getCode(), 'msg' => $exception->getMessage()];
+            return response()->json($data, 401);
+        }elseif($exception instanceof  MyValidateException){
+            $data = ['status' => $exception->getCode(), 'msg' => $exception->getMessage()];
+            return response()->json($data, 401);
+        }
+
         return parent::render($request, $exception);
     }
 }

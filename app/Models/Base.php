@@ -15,4 +15,12 @@ class Base extends Model
 
     // create添加时所用
     protected $guarded = [];
+
+    // 前缀域名
+    protected static $host;
+
+    protected static function boot() {
+        parent::boot();
+        self::$host = env('APP_URL');
+    }
 }

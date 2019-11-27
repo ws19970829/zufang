@@ -59,11 +59,23 @@ return [
             //上传到服务器的位置
             'root'=>public_path('uploads/fangattr'),
         ],
-        'fangowner'=>[
+        'fangownerexcel'=>[
             //驱动本地文件
             'driver'=>'local',
             //上传到服务器的位置
-            'root'=>public_path('uploads/fangowner'),
+            'root'=>public_path('uploads/fangownerexcel'),
+        ],
+        'fang'=>[
+            //驱动本地文件
+            'driver'=>'local',
+            //上传到服务器的位置
+            'root'=>public_path('uploads/fang'),
+        ],
+        //个人身份证信息
+        'renting'=>[
+            'driver'=>'local',
+            //上传到服务器的位置
+            'root'=>public_path('uploads/renting'),
         ],
 
         'public' => [
@@ -81,6 +93,7 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
+
 
     ],
 

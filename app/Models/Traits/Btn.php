@@ -5,7 +5,7 @@ namespace  App\Models\Traits;
 trait Btn {
 
     private  function checkAuth(string $routeName){
-        $auths = request()->auths;
+        $auths = request()->auths ?? [];
         // 权限判断
         if (!in_array($routeName, $auths) && request()->username != 'admin') {
             return false;
@@ -39,6 +39,14 @@ trait Btn {
     public function checkBox(){
         return '<input type="checkbox" name="ids[]" value="' .$this->id .'">';
     }
+    //展示按钮
+    public function showBtn(string $routeName){
+        if($this->checkAuth($routeName)){
+            return  '<a href="' . route($routeName, $this) . '" class="label label-success radius showbtn">显示</a>';
+        }
+        return '';
+    }
+
 
 
 }
