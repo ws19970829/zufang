@@ -15,15 +15,22 @@ class Renting extends Base
     }
     // 身份图片显示
     public function getCardImgAttribute() {
-        $imglist = [];
-        if (strstr($this->attributes['card_img'], '#')) {
-            $imglist = explode('#', $this->attributes['card_img']);
-            $imglist = array_map(function ($item) {
-                return self::$host . '/' . $item;
-            }, $imglist);
+//        if(empty($this->attributes['card_img'])){
+//            return [];
+//        }else{
+            $imglist = [];
+            if (strstr($this->attributes['card_img'], '#')) {
+
+                $imglist = explode('#', $this->attributes['card_img']);
+                array_shift($imglist);
+                $imglist = array_map(function ($item) {
+                    return self::$host . '/' . $item;
+                }, $imglist);
+                return    $imglist;
+            }
             return $imglist;
-        }
-        return $imglist;
+//        }
+
     }
 //    public function getCardImgAttribute() {
 //        return self::$host . $this->attributes['card_img'];

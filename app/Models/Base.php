@@ -21,6 +21,6 @@ class Base extends Model
 
     protected static function boot() {
         parent::boot();
-        self::$host = env('APP_URL');
+        self::$host = config('url.host');
     }
 }

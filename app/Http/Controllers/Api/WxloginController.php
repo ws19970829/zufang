@@ -7,6 +7,7 @@ use App\Models\Renting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
+use App\Exceptions\MyValidateException;
 
 
 class WxloginController extends Controller

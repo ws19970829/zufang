@@ -32,6 +32,18 @@ class Fang extends Base {
         array_shift($arr);
         return $arr;
     }
+    //图片
+    public function getFangPicAttribute() {
+       $arr = explode('#',$this->attributes['fang_pic']);
+       array_shift($arr);
+     return   array_map(function($item){
+           return self::$host.'/'. ltrim($item,'/');
+       },$arr);
+    }
+    //图片pic
+    public function getFangPicsAttribute(){
+        return $this->attributes['fang_pic'];
+    }
 
 
 
