@@ -5,6 +5,7 @@ namespace  App\Models\Traits;
 trait Btn {
 
     private  function checkAuth(string $routeName){
+        //得到当前角色持有的权限列表
         $auths = request()->auths ?? [];
         // 权限判断
         if (!in_array($routeName, $auths) && request()->username != 'admin') {

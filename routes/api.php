@@ -50,7 +50,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //});
 
  //小程序路由
-Route::group(['prefix'=>'v1','namespace'=>'Api'],function(){
+Route::group(['prefix'=>'v1','namespace'=>'Api','middleware'=>['checkapi']],function(){
     //微信小程序的登录
     Route::post('wxlogin','WxloginController@login');
     //小程序的授权
@@ -58,7 +58,7 @@ Route::group(['prefix'=>'v1','namespace'=>'Api'],function(){
     //图片上传
     Route::post('upfile','RentingController@upfile');
     //删除图片请求
-    Route::delete('delimg','RentingController@delimg');
+    Route::get('delimg','RentingController@delimg');
 
 
     //租客信息接收处理
@@ -89,7 +89,12 @@ Route::group(['prefix'=>'v1','namespace'=>'Api'],function(){
     Route::get('fang/fav','FavController@fav');
     //检查是否收藏
     Route::get('fang/isfav','FavController@isfav');
-
+    //收藏页面
+    Route::get('fav/list','FavController@list');
+    //房源属性
+    Route::get('fang/fangattr','FangController@fangattr');
+    //es模糊查询
+    Route::get('fang/search','FangController@search');
 
 
 

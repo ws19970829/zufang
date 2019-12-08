@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Fang;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Node;
+
 
 class IndexController extends BaseController
 {
@@ -26,7 +28,19 @@ class IndexController extends BaseController
 
     }
     public function welcome(){
-        return view('admin.index.welcome');
+        //已租
+        $count1 = Fang::where('fang_status',1)->count();
+        //未租
+        $count2 =Fang::where('Fang_status',0)->count();
+        //拼接图形所需数据
+        $legend="'已租','未租'";
+        $data=[
+            ['value'=>$count1,'name'=>'已租'],
+            ['value'=>$count2,'name'=>'待租'],
+        ];
+        $data = json_encode($data,JSON_UNESCAPED_UNICODE);
+//       dd($data);
+        return view('admin.index.welcome',compact('legend','data'));
     }
     public function logout(){
         auth()->logout();

@@ -63,7 +63,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">文章摘要：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <textarea name="desn" cols="" rows=""  value="{{$article->desn}}" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+                    <textarea name="desc" cols="" rows=""  value="{{$article->desc}}" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
                     <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                 title: {
                     required: true
                 },
-                desn: {
+                desc: {
                     required: true
                 }
             },
@@ -147,12 +147,13 @@
             // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
             resize: false,
             // 表单传额外值
-            formData: {_token: "{{ csrf_token() }}"},
+            formData: {_token: "{{ csrf_token() }}",node:'articles'},
             // 上传表单名称
             fileVal: 'file'
         });
         // 回调方法监听
         uploader.on('uploadSuccess', function (file, {url}) {
+            // dd(url);
             $('#pic').val(url);
             $('#showpic').attr('src', url);
             $('.imgbox').slideDown('slow');

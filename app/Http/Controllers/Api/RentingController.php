@@ -51,29 +51,22 @@ class RentingController extends Controller
 
     //删除图片请求
     public function delimg(Request $request){
+
         $data=Renting::where('openid',$request->get('openid'))->value('card_img');
-        $id = $request->get('imgid');
+        dump($data);
+        die;
+        //$id = $request->get('imgid');
 //        dd($id);
        $newdata = array_map(function($item){
            return '/'.strstr($item,'u');
         },$data);
 
            $filepath = public_path($newdata[$id]);
-           if(is_file($filepath)){
-               unlink($filepath);
+           if(!is_file($filepath)){
+              return ['status'=>3,'msg'=>'删除异常'];
            }
-           unset($newdata[$id]);
-           $img =$newdata;
-
-           $newdata=implode(',',$newdata);
-           $newdata=str_replace(',','#',$newdata);
-//          return 1;
-           $model=Renting::where('openid',$request->get('openid'))->update(['card_img'=>$newdata]);
-          if($model==1){
-              return ['status'=>0,'msg'=>'删除成功','img'=>$img];
-          }else{
-              return ['status'=>3,'msg'=>'删除失败'];
-          }
+           unlink($filepath);
+           return ['status'=>0,'msg'=>'删除成功'];
 
 
 
